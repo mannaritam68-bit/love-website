@@ -1,18 +1,27 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MY LOVE WEBSITE</title>
+    <title>MY LOVE WEBSITE ❤️</title>
 
     <style>
-        /* Full webpage background */
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
         body {
             margin: 0;
             width: 100%;
-            height: 100vh;
+            height: 100%;
+        }
 
+        body {
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,11 +35,64 @@
             overflow: hidden;
         }
 
+        /* =========================
+           TITLE
+        ========================= */
 
-        /* Question box */
+        h1 {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            margin: 0;
+            padding: 12px 25px;
+
+            font-size: 50px;
+            text-align: center;
+            white-space: nowrap;
+
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+
+            background-image: linear-gradient(90deg,
+                    #ff00cc,
+                    #3333ff,
+                    #00ffff,
+                    #ff00cc);
+
+            background-size: 300%;
+
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            animation: textColor 4s linear infinite;
+
+            z-index: 10;
+        }
+
+        @keyframes textColor {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 300% 50%;
+            }
+        }
+
+        /* =========================
+           QUESTION BOX
+        ========================= */
+
         .box {
-            width: 450px;
-            padding: 50px;
+            width: min(450px, 90%);
+            padding: 45px 30px;
 
             text-align: center;
 
@@ -39,71 +101,31 @@
             border-radius: 25px;
 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.30);
+
+            z-index: 5;
         }
 
-
-        /* Question */
         h2 {
             color: #000000;
-            font-size: 35px;
-            margin-bottom: 35px;
-            text-align:center;
-            margin-top: 20px;
+
+            font-size: clamp(25px, 6vw, 35px);
+
+            margin: 0 0 35px 0;
         }
 
-        h1 {
-    text-align: center;
-    font-size: 50px;
-    top: 20px;
-    position:absolute;
+        /* =========================
+           BUTTONS
+        ========================= */
 
-    /* Glass box */
-    padding: 15px 30px;
-    width: fit-content;
-    margin: 20px auto;
-
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-
-    /* Animated text */
-    background-image: linear-gradient(
-        90deg,
-        #ff00cc,
-        #3333ff,
-        #00ffff,
-        #ff00cc
-    );
-    background-size: 300%;
-
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    animation: textColor 4s linear infinite;
-}
-
-@keyframes textColor {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    100% {
-        background-position: 300% 50%;
-    }
-}
-       
-
-        /* Buttons */
         .buttons {
             display: flex;
             justify-content: center;
-            gap: 30px;
-        }
+            align-items: center;
 
+            gap: 25px;
+
+            min-height: 70px;
+        }
 
         button {
             width: 120px;
@@ -116,83 +138,147 @@
             font-weight: bold;
 
             cursor: pointer;
+
+            -webkit-tap-highlight-color: transparent;
+
+            transition: transform 0.2s ease;
         }
 
+        /* YES */
 
-        /* YES button */
         #yesBtn {
             background: #ff3366;
             color: white;
         }
 
-
         #yesBtn:hover {
             transform: scale(1.08);
         }
 
+        /* NO */
 
-        /* NO button */
         #noBtn {
             background: #dddddd;
             color: #333333;
 
             position: relative;
 
-            transition: transform 0.25s ease;
+            transition: transform 0.20s ease;
         }
 
+        /* =========================
+           VIDEO
+        ========================= */
 
-        /* Video section */
         #videoContainer {
             display: none;
 
             position: fixed;
 
-            top: 0;
-            left: 0;
+            inset: 0;
 
             width: 100vw;
-            height: 100vh;
+            height: 100dvh;
 
             background: black;
 
             z-index: 9999;
         }
 
-
-        /* Full screen video */
         #loveVideo {
             width: 100%;
             height: 100%;
 
-            object-fit: cover;
+            object-fit: contain;
+
+            background: black;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            h1 {
+                top: 12px;
+
+                font-size: 30px;
+
+                padding: 10px 18px;
+
+                max-width: 90%;
+            }
+
+            .box {
+                width: 90%;
+
+                padding: 35px 20px;
+
+                border-radius: 20px;
+            }
+
+            h2 {
+                font-size: 27px;
+
+                margin-bottom: 30px;
+            }
+
+            .buttons {
+                gap: 15px;
+            }
+
+            button {
+                width: 105px;
+
+                padding: 13px 10px;
+
+                font-size: 16px;
+            }
+        }
+
+        /* Small phones */
+
+        @media (max-width: 380px) {
+
+            h1 {
+                font-size: 25px;
+            }
+
+            h2 {
+                font-size: 23px;
+            }
+
+            button {
+                width: 95px;
+
+                font-size: 15px;
+            }
         }
     </style>
-
 </head>
 
 
 <body>
-    <h1><center>RITAM WEBSITE ❤️</center></h1>
+
+    <!-- TITLE -->
+
+    <h1>RITAM WEBSITE ❤️</h1>
 
 
-    <!-- Question -->
-     
+    <!-- QUESTION -->
 
     <div class="box" id="questionBox">
 
         <h2>
             Do you love me? ❤️
         </h2>
-        
-
 
         <div class="buttons">
 
             <button id="yesBtn">
                 YES ❤️
             </button>
-
 
             <button id="noBtn">
                 NO 😭
@@ -203,12 +289,11 @@
     </div>
 
 
-
-    <!-- Full screen video -->
+    <!-- VIDEO -->
 
     <div id="videoContainer">
 
-        <video id="loveVideo">
+        <video id="loveVideo" playsinline controls preload="metadata">
 
             <source src="video.mp4.mp4" type="video/mp4">
 
@@ -219,86 +304,108 @@
     </div>
 
 
-
     <script>
 
+        const yesBtn =
+            document.getElementById("yesBtn");
 
-        // YES and NO buttons ko select karna
-
-        const yesBtn = document.getElementById("yesBtn");
-
-        const noBtn = document.getElementById("noBtn");
-
-
-        // Question box
+        const noBtn =
+            document.getElementById("noBtn");
 
         const questionBox =
             document.getElementById("questionBox");
 
-
-        // Video section
-
         const videoContainer =
             document.getElementById("videoContainer");
-
-
-        // Video
 
         const loveVideo =
             document.getElementById("loveVideo");
 
 
+        /* =========================
+           MOVE NO BUTTON
+        ========================= */
 
-        // NO button ke upar cursor jaane par
+        function moveNoButton() {
 
-        noBtn.addEventListener("mouseenter", function () {
+            const buttonRect =
+                noBtn.getBoundingClientRect();
 
+            const padding = 10;
 
-            // Random X position
+            const maxX =
+                (window.innerWidth -
+                    buttonRect.width) / 2 - padding;
+
+            const maxY =
+                (window.innerHeight -
+                    buttonRect.height) / 2 - padding;
 
             const x =
-                Math.random() * 300 - 150;
-
-
-            // Random Y position
+                (Math.random() * maxX * 2) - maxX;
 
             const y =
-                Math.random() * 200 - 100;
-
-
-            // NO button ko move karna
+                (Math.random() * maxY * 2) - maxY;
 
             noBtn.style.transform =
-                "translate(" + x + "px, " + y + "px)";
-
-        });
-
+                `translate(${x}px, ${y}px)`;
+        }
 
 
-        // YES button click
+        /* PC */
 
-        yesBtn.addEventListener("click", function () {
-
-
-            // Question hide
-
-            questionBox.style.display = "none";
+        noBtn.addEventListener(
+            "mouseenter",
+            moveNoButton
+        );
 
 
-            // Video container show
+        /* MOBILE */
 
-            videoContainer.style.display = "block";
+        noBtn.addEventListener(
+            "touchstart",
+            function (event) {
+
+                event.preventDefault();
+
+                moveNoButton();
+            },
+            {
+                passive: false
+            }
+        );
 
 
-            // Video start
+        /* =========================
+           YES BUTTON
+        ========================= */
 
-            loveVideo.play();
+        yesBtn.addEventListener(
+            "click",
+            async function () {
 
-        });
+                questionBox.style.display =
+                    "none";
 
+                videoContainer.style.display =
+                    "block";
+
+                try {
+
+                    await loveVideo.play();
+
+                } catch (error) {
+
+                    console.log(
+                        "Video needs user interaction."
+                    );
+
+                }
+
+            }
+        );
 
     </script>
-
 
 </body>
 
