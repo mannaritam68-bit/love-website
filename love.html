@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>For You ❤️</title>
+
+    <style>
+        /* Full webpage background */
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-image: url("download (4).jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+
+        /* Question box */
+        .box {
+            width: 450px;
+            padding: 50px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.90);
+
+            border-radius: 25px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.30);
+        }
+
+
+        /* Question */
+        h1 {
+            color: #ff3366;
+            font-size: 35px;
+            margin-bottom: 35px;
+        }
+
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+
+        button {
+            width: 120px;
+            padding: 15px;
+
+            border: none;
+            border-radius: 30px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        /* YES button */
+        #yesBtn {
+            background: #ff3366;
+            color: white;
+        }
+
+
+        #yesBtn:hover {
+            transform: scale(1.08);
+        }
+
+
+        /* NO button */
+        #noBtn {
+            background: #dddddd;
+            color: #333333;
+
+            position: relative;
+
+            transition: transform 0.25s ease;
+        }
+
+
+        /* Video section */
+        #videoContainer {
+            display: none;
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100vw;
+            height: 100vh;
+
+            background: black;
+
+            z-index: 9999;
+        }
+
+
+        /* Full screen video */
+        #loveVideo {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Question -->
+
+    <div class="box" id="questionBox">
+
+        <h1>
+            Do you love me? ❤️
+        </h1>
+
+
+        <div class="buttons">
+
+            <button id="yesBtn">
+                YES ❤️
+            </button>
+
+
+            <button id="noBtn">
+                NO 😭
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Full screen video -->
+
+    <div id="videoContainer">
+
+        <video id="loveVideo">
+
+            <source src="video.mp4.mp4" type="video/mp4">
+
+            Your browser does not support video.
+
+        </video>
+
+    </div>
+
+
+
+    <script>
+
+
+        // YES and NO buttons ko select karna
+
+        const yesBtn = document.getElementById("yesBtn");
+
+        const noBtn = document.getElementById("noBtn");
+
+
+        // Question box
+
+        const questionBox =
+            document.getElementById("questionBox");
+
+
+        // Video section
+
+        const videoContainer =
+            document.getElementById("videoContainer");
+
+
+        // Video
+
+        const loveVideo =
+            document.getElementById("loveVideo");
+
+
+
+        // NO button ke upar cursor jaane par
+
+        noBtn.addEventListener("mouseenter", function () {
+
+
+            // Random X position
+
+            const x =
+                Math.random() * 300 - 150;
+
+
+            // Random Y position
+
+            const y =
+                Math.random() * 200 - 100;
+
+
+            // NO button ko move karna
+
+            noBtn.style.transform =
+                "translate(" + x + "px, " + y + "px)";
+
+        });
+
+
+
+        // YES button click
+
+        yesBtn.addEventListener("click", function () {
+
+
+            // Question hide
+
+            questionBox.style.display = "none";
+
+
+            // Video container show
+
+            videoContainer.style.display = "block";
+
+
+            // Video start
+
+            loveVideo.play();
+
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>
