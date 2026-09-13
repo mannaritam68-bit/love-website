@@ -43,12 +43,59 @@
 
 
         /* Question */
-        h1 {
-            color: #ff3366;
+        h2 {
+            color: #000000;
             font-size: 35px;
             margin-bottom: 35px;
+            text-align:center;
+            margin-top: 20px;
         }
 
+        h1 {
+    text-align: center;
+    font-size: 50px;
+    top: 20px;
+    position:absolute;
+
+    /* Glass box */
+    padding: 15px 30px;
+    width: fit-content;
+    margin: 20px auto;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+
+    /* Animated text */
+    background-image: linear-gradient(
+        90deg,
+        #ff00cc,
+        #3333ff,
+        #00ffff,
+        #ff00cc
+    );
+    background-size: 300%;
+
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    animation: textColor 4s linear infinite;
+}
+
+@keyframes textColor {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 300% 50%;
+    }
+}
+       
 
         /* Buttons */
         .buttons {
@@ -126,15 +173,18 @@
 
 
 <body>
+    <h1><center>RITAM WEBSITE ❤️</center></h1>
 
 
     <!-- Question -->
+     
 
     <div class="box" id="questionBox">
 
-        <h1>
+        <h2>
             Do you love me? ❤️
-        </h1>
+        </h2>
+        
 
 
         <div class="buttons">
