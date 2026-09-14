@@ -1,176 +1,405 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MY LOVE WEBSITE ❤️</title>
+    <meta charset="UTF-8">
+
+    <title>RITAM WEBSITE ❤️</title>
+
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
 
     <style>
+        /* ==============================
+           BASIC RESET
+        ============================== */
+
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
-        html,
-        body {
-            margin: 0;
-            width: 100%;
-            height: 100%;
-        }
+
+        /* ==============================
+           BODY
+        ============================== */
 
         body {
+
             min-height: 100vh;
+
             display: flex;
             justify-content: center;
             align-items: center;
 
-            background-image: url("download (4).jpg");
+            overflow: hidden;
+
+            background-image: url("pic.jpg");
+
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
 
-            font-family: Arial, sans-serif;
-            overflow: hidden;
+            font-family: "Playfair Display", serif;
         }
 
-        /* =========================
-           TITLE
-        ========================= */
 
-        h1 {
+        /* ==============================
+           DARK CINEMATIC OVERLAY
+        ============================== */
+
+        body::before {
+
+            content: "";
+
             position: fixed;
-            top: 15px;
+
+            inset: 0;
+
+            background:
+                linear-gradient(135deg,
+                    rgba(0, 0, 0, 0.32),
+                    rgba(0, 0, 0, 0.08),
+                    rgba(0, 0, 0, 0.35));
+
+            z-index: 0;
+
+            pointer-events: none;
+        }
+
+
+        /* ==============================
+           VIGNETTE
+        ============================== */
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                radial-gradient(circle,
+                    transparent 35%,
+                    rgba(0, 0, 0, 0.38) 100%);
+
+            z-index: 0;
+
+            pointer-events: none;
+        }
+
+
+        /* ==============================
+           WATERMARK
+        ============================== */
+
+        .watermark {
+
+            position: fixed;
+
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
 
-            margin: 0;
-            padding: 12px 25px;
+            transform:
+                translate(-50%, -50%) rotate(-12deg);
 
-            font-size: 50px;
-            text-align: center;
+            font-family:
+                "Cormorant Garamond",
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(55px, 10vw, 140px);
+
+            font-weight: 600;
+
+            letter-spacing: 10px;
+
             white-space: nowrap;
 
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            color:
+                rgba(255, 255, 255, 0.20);
 
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
+            text-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.30);
 
-            background-image: linear-gradient(90deg,
-                    #ff00cc,
-                    #3333ff,
-                    #00ffff,
-                    #ff00cc);
+            user-select: none;
 
-            background-size: 300%;
+            pointer-events: none;
 
-            color: transparent;
-            background-clip: text;
-            -webkit-background-clip: text;
-
-            animation: textColor 4s linear infinite;
-
-            z-index: 10;
+            z-index: 1;
         }
 
-        @keyframes textColor {
-            0% {
-                background-position: 0% 50%;
-            }
 
-            100% {
-                background-position: 300% 50%;
-            }
-        }
+        /* ==============================
+           GLASS QUESTION CARD
+        ============================== */
 
-        /* =========================
-           QUESTION BOX
-        ========================= */
-
-        .box {
-            width: min(450px, 90%);
-            padding: 45px 30px;
-
-            text-align: center;
-
-            background: rgba(255, 255, 255, 0.90);
-
-            border-radius: 25px;
-
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.30);
-
-            z-index: 5;
-        }
-
-        h2 {
-            color: #000000;
-
-            font-size: clamp(25px, 6vw, 35px);
-
-            margin: 0 0 35px 0;
-        }
-
-        /* =========================
-           BUTTONS
-        ========================= */
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            gap: 25px;
-
-            min-height: 70px;
-        }
-
-        button {
-            width: 120px;
-            padding: 15px;
-
-            border: none;
-            border-radius: 30px;
-
-            font-size: 18px;
-            font-weight: bold;
-
-            cursor: pointer;
-
-            -webkit-tap-highlight-color: transparent;
-
-            transition: transform 0.2s ease;
-        }
-
-        /* YES */
-
-        #yesBtn {
-            background: #ff3366;
-            color: white;
-        }
-
-        #yesBtn:hover {
-            transform: scale(1.08);
-        }
-
-        /* NO */
-
-        #noBtn {
-            background: #dddddd;
-            color: #333333;
+        .question-box {
 
             position: relative;
 
-            transition: transform 0.20s ease;
+            z-index: 5;
+
+            width: min(520px, 88%);
+
+            padding: 50px 45px;
+
+            text-align: center;
+
+            /* Strong Glass Effect */
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.24),
+                    rgba(255, 255, 255, 0.08));
+
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+
+            /* Glass Border */
+            border:
+                1px solid rgba(255, 255, 255, 0.38);
+
+            border-radius: 30px;
+
+            /* Premium Shadow */
+            box-shadow:
+
+                0 30px 80px rgba(0, 0, 0, 0.40),
+
+                inset 0 1px 0 rgba(255, 255, 255, 0.35),
+
+                inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+
+            animation:
+                cardAppear 1s ease;
         }
 
-        /* =========================
-           VIDEO
-        ========================= */
+
+        /* Glass Highlight */
+
+        .question-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 12%;
+
+            width: 76%;
+            height: 1px;
+
+            background:
+                rgba(255, 255, 255, 0.65);
+
+            opacity: 0.6;
+        }
+
+
+        /* ==============================
+           CARD ANIMATION
+        ============================== */
+
+        @keyframes cardAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px) scale(0.94);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0) scale(1);
+            }
+        }
+
+
+        /* ==============================
+           QUESTION
+        ============================== */
+
+        h2 {
+
+            color: white;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(27px, 5vw, 40px);
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 35px;
+
+            text-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.45);
+        }
+
+
+        /* Small decorative line */
+
+        h2::after {
+
+            content: "";
+
+            display: block;
+
+            width: 55px;
+
+            height: 2px;
+
+            margin:
+                18px auto 0;
+
+            background:
+                rgba(255, 255, 255, 0.65);
+
+            border-radius: 10px;
+        }
+
+
+        /* ==============================
+           BUTTON AREA
+        ============================== */
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 18px;
+        }
+
+
+        /* ==============================
+           ALL BUTTONS
+        ============================== */
+
+        button {
+
+            border: none;
+
+            padding:
+                14px 32px;
+
+            border-radius: 50px;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.5px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+
+            outline: none;
+        }
+
+
+        /* ==============================
+           YES BUTTON
+        ============================== */
+
+        #yesBtn {
+
+            color: white;
+
+            background:
+                linear-gradient(135deg,
+                    #ff6685,
+                    #ff1744);
+
+            box-shadow:
+                0 10px 30px rgba(255, 23, 68, 0.38);
+        }
+
+
+        #yesBtn:hover {
+
+            transform:
+                translateY(-4px) scale(1.06);
+
+            box-shadow:
+                0 16px 40px rgba(255, 23, 68, 0.55);
+        }
+
+
+        #yesBtn:active {
+
+            transform:
+                scale(0.97);
+        }
+
+
+        /* ==============================
+           NO BUTTON
+        ============================== */
+
+        #noBtn {
+
+            color: white;
+
+            background:
+                rgba(255, 255, 255, 0.16);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.30);
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.20);
+        }
+
+
+        #noBtn:hover {
+
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.32);
+        }
+
+
+        /* ==============================
+           VIDEO SCREEN
+        ============================== */
 
         #videoContainer {
+
             display: none;
 
             position: fixed;
@@ -178,101 +407,100 @@
             inset: 0;
 
             width: 100vw;
-            height: 100dvh;
+            height: 100vh;
 
             background: black;
 
             z-index: 9999;
         }
 
+
         #loveVideo {
+
             width: 100%;
             height: 100%;
 
-            object-fit: contain;
+            object-fit: cover;
 
-            background: black;
+            display: block;
         }
 
-        /* =========================
+
+        /* ==============================
            MOBILE
-        ========================= */
+        ============================== */
 
         @media (max-width: 600px) {
 
-            h1 {
-                top: 12px;
+            .question-box {
 
-                font-size: 30px;
-
-                padding: 10px 18px;
-
-                max-width: 90%;
-            }
-
-            .box {
                 width: 90%;
 
-                padding: 35px 20px;
+                padding:
+                    38px 22px;
 
-                border-radius: 20px;
+                border-radius: 25px;
             }
 
+
             h2 {
+
                 font-size: 27px;
 
                 margin-bottom: 30px;
             }
 
+
             .buttons {
-                gap: 15px;
+
+                gap: 12px;
             }
+
 
             button {
-                width: 105px;
 
-                padding: 13px 10px;
-
-                font-size: 16px;
-            }
-        }
-
-        /* Small phones */
-
-        @media (max-width: 380px) {
-
-            h1 {
-                font-size: 25px;
-            }
-
-            h2 {
-                font-size: 23px;
-            }
-
-            button {
-                width: 95px;
+                padding:
+                    12px 24px;
 
                 font-size: 15px;
             }
+
+
+            .watermark {
+
+                font-size: 52px;
+
+                letter-spacing: 4px;
+            }
         }
     </style>
+
 </head>
 
 
 <body>
 
-    <!-- TITLE -->
 
-    <h1>RITAM WEBSITE ❤️</h1>
+    <!-- ==============================
+         WATERMARK
+    ============================== -->
+
+    <div class="watermark">
+        RITAM WEBSITE ❤️
+    </div>
 
 
-    <!-- QUESTION -->
 
-    <div class="box" id="questionBox">
+    <!-- ==============================
+         QUESTION CARD
+    ============================== -->
+
+    <div class="question-box" id="questionBox">
 
         <h2>
             Do you love me? ❤️
         </h2>
+
 
         <div class="buttons">
 
@@ -280,8 +508,9 @@
                 YES ❤️
             </button>
 
+
             <button id="noBtn">
-                NO 😭
+                NO
             </button>
 
         </div>
@@ -289,11 +518,14 @@
     </div>
 
 
-    <!-- VIDEO -->
+
+    <!-- ==============================
+         VIDEO
+    ============================== -->
 
     <div id="videoContainer">
 
-        <video id="loveVideo" playsinline controls preload="metadata">
+        <video id="loveVideo" playsinline controls>
 
             <source src="video.mp4.mp4" type="video/mp4">
 
@@ -304,7 +536,12 @@
     </div>
 
 
+
     <script>
+
+        /* ==============================
+           GET ELEMENTS
+        ============================== */
 
         const yesBtn =
             document.getElementById("yesBtn");
@@ -322,37 +559,45 @@
             document.getElementById("loveVideo");
 
 
-        /* =========================
+
+        /* ==============================
            MOVE NO BUTTON
-        ========================= */
+        ============================== */
 
         function moveNoButton() {
 
-            const buttonRect =
-                noBtn.getBoundingClientRect();
-
-            const padding = 10;
-
             const maxX =
-                (window.innerWidth -
-                    buttonRect.width) / 2 - padding;
+                Math.min(
+                    280,
+                    window.innerWidth * 0.35
+                );
 
             const maxY =
-                (window.innerHeight -
-                    buttonRect.height) / 2 - padding;
+                Math.min(
+                    180,
+                    window.innerHeight * 0.25
+                );
+
 
             const x =
-                (Math.random() * maxX * 2) - maxX;
+                Math.random() *
+                (maxX * 2) -
+                maxX;
+
 
             const y =
-                (Math.random() * maxY * 2) - maxY;
+                Math.random() *
+                (maxY * 2) -
+                maxY;
+
 
             noBtn.style.transform =
                 `translate(${x}px, ${y}px)`;
         }
 
 
-        /* PC */
+
+        /* Desktop */
 
         noBtn.addEventListener(
             "mouseenter",
@@ -360,7 +605,8 @@
         );
 
 
-        /* MOBILE */
+
+        /* Mobile */
 
         noBtn.addEventListener(
             "touchstart",
@@ -369,6 +615,7 @@
                 event.preventDefault();
 
                 moveNoButton();
+
             },
             {
                 passive: false
@@ -376,28 +623,48 @@
         );
 
 
-        /* =========================
+
+        /* ==============================
            YES BUTTON
-        ========================= */
+        ============================== */
 
         yesBtn.addEventListener(
             "click",
             async function () {
 
+                /* Hide question */
+
                 questionBox.style.display =
                     "none";
 
+
+                /* Hide watermark */
+
+                document
+                    .querySelector(".watermark")
+                    .style.display =
+                    "none";
+
+
+                /* Show video */
+
                 videoContainer.style.display =
                     "block";
+
+
+                /* Play video */
 
                 try {
 
                     await loveVideo.play();
 
-                } catch (error) {
+                }
+
+                catch (error) {
 
                     console.log(
-                        "Video needs user interaction."
+                        "Video playback error:",
+                        error
                     );
 
                 }
